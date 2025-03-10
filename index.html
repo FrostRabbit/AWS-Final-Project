@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To the Power of Math!</title>
+    <meta http-equiv="Cache-Control" content="max-age=3600">
+    <!-- Styling for the client UI -->
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aws-amplify@3/dist/aws-amplify.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
+    <script type="text/babel" src="camera.js"></script>
+    <script type="text/babel" src="emoji.js"></script>
+    <script type="text/babel" src="authencate.js"></script>
+    <script type="text/babel" src="rekognition.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>TO THE POWER OF MATH!</h1>
+    <div id="main">
+        <form>
+            <div style="display: inline-block;vertical-align: top;">
+                <div>
+                    <label>Base number:</label>
+                    <input type="text" id="base">
+                </div>  
+
+                <img src="" data-role2="special_highlight" style="width: 321px; height: 240px; margin-left: 20px; margin-top: 20px;"/>
+
+                <div id="app">
+                    <button onclick="signIn(); return false;">Sign In</button>
+                    <button onclick="signOut(); return false;">Sign Out</button>
+                </div>
+            </div>
+            <div style="display: inline-block;">
+                <div class="out">
+                    <div class ="other">
+                        <label >add:</label>
+                        <input type="text" id="add">
+                    </div>
+                </div>
+
+                <div class="out">
+                    <div class ="other">
+                        <label>minus:</label>
+                        <input  type="text" id="minus">
+                    </div>
+                </div>
+                <div class="out">
+                    <div class ="other">
+                        <label>multiply:</label>
+                        <input  type="text" id="multiply">
+                    </div>
+                </div>
+                <div class="out">
+                    <div class ="other">
+                        <label>divide:</label>
+                        <input  type="text" id="divide">
+                    </div>
+                </div>
+            </div>
+            <!-- set button onClick method to call function we defined passing input values as parameters -->
+            <div style="display: inline-block;vertical-align: top;">
+                <button type="button" onclick="callAPI(document.getElementById('base').value,'add',document.getElementById('add').value);">
+                    CALCULATE
+                </button>
+                <button type="button" onclick="callAPI(document.getElementById('base').value,'minus',document.getElementById('minus').value);">
+                    CALCULATE
+                </button>
+                <button type="button" onclick="callAPI(document.getElementById('base').value,'multiply',document.getElementById('multiply').value);">
+                    CALCULATE
+                </button>
+                <button type="button" onclick="callAPI(document.getElementById('base').value,'divide',document.getElementById('divide').value);">
+                    CALCULATE
+                </button>
+            </div>
+        </form>
+        <div id="recog"></div>
+    </div>
+
+</body>
+</html>

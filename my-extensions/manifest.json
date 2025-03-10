@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "Emoji Inserter",
+    "version": "1.0",
+    "description": "Insert emojis into text inputs on any webpage.",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting",
+        "notifications",
+        "windows",
+        "storage",
+        "background"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "persistent": true
+    },
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "action": {
+        
+        "default_icon": {
+        }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["libs/react.js", "libs/react-dom.js", "libs/uuidv4.min.js" , "camera.js", "authencate.js", "emoji.js", "default.jpg"],
+            "matches": ["<all_urls>"]
+        }
+    ], 
+    "commands": {
+        "open-window": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+F"
+          },
+          "description": "Open the upload window"
+        } 
+    }
+}
