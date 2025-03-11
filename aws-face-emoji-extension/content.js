@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const { image_emoji, setImage_emoji, uploadResultMessage_emoji, sendImage_emoji } = Emoji();
         const { image_auth, setImage_auth, photoURL, setPhotoURL, authPhotoURL, uploadResultMessage_auth
             , isAuth, handleFileChange, sendImage_auth, sendImage_auth2 } = auth();
-        const { isCameraOpen, videoRef, handleStartCamera, h`andleTakePhoto, handleCancel } = camera(setImage_emoji, setImage_auth, setPhotoURL);
+        const { isCameraOpen, videoRef, handleStartCamera, handleTakePhoto, handleCancel } = camera(setImage_emoji, setImage_auth, setPhotoURL);
         handlekeys();
         
     
@@ -216,21 +216,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 
-
+  // 接收來自 background.js 的訊息
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "update-input") {
       const inputField = document.activeElement;
       console.log('update-input', inputField);
+
       if (inputField && inputField.tagName === 'INPUT' && inputField.type === 'text') {
         const start = inputField.selectionStart;
         const end = inputField.selectionEnd;
         const value = inputField.value;
   
+        // 將選取的文字插入並替換為含顏文字的message.result
         inputField.value = value.slice(0, start) + message.result + value.slice(end);
         inputField.selectionStart = inputField.selectionEnd = start + message.result.length;
         inputField.focus();
         return;
       }
+      
       if(inputField && inputField.isContentEditable) {
         const selection = window.getSelection();
         if (!selection.rangeCount) return false;

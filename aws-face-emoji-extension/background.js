@@ -25,6 +25,8 @@ chrome.runtime.onInstalled.addListener(() => {
       });
     }
   });
+
+  // Listen for message from content script
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "process-complete") {
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {

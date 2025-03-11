@@ -31,7 +31,7 @@
     },
     "web_accessible_resources": [
         {
-            "resources": ["libs/react.js", "libs/react-dom.js", "libs/uuidv4.min.js" , "camera.js", "authencate.js", "emoji.js", "default.jpg"],
+            "resources": ["libs/react.js", "libs/react-dom.js", "libs/uuidv4.min.js" , "camera.js", "authenticate.js", "emoji.js", "default.jpg"],
             "matches": ["<all_urls>"]
         }
     ], 
