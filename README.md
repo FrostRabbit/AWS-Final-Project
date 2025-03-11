@@ -72,4 +72,4 @@ git clone https://github.com/FrostRabbit/AWS-Final-Project.git
 
 ---
 ## Demo Video
-[!Demo Video](https://www.youtube.com/watch?v=nJWwoXhRGVw)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nJWwoXhRGVw?si=5fRMqF0stkh-F5mo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
